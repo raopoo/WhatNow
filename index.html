@@ -13,6 +13,116 @@
 
 </head>
 <body>
-    
+    <!-- HEADER TITILE -->
+<header>
+    <h1> WHAT NOW? </h1>
+</header>
+
+
+    <!-- NEW TASK FORM -->
+            <!-- TITLE OF NEW TASK -->
+            <!-- FORM -->
+            <div class="container-md border bloddy-container">
+                <div class="mx-auto " style="width: 800px;">
+                    <h1 class="display-6 text-warning pt-3"><strong>CREATE NEW TASK</strong></h1></strong>
+                <form>
+                    <div class="row mb-3">
+                    <label for="newtasktitle" class="col-sm-1 col-form-label">TITLE</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="newtasktitle">
+                    </div>
+                    </div>
+                    <div class="mb-3 col-md-7">
+                        <label for="newtaskdescription" class="form-label "> DESCRIPTION</label>
+                        <textarea class="form-control " id="newtaskdescription" rows="3"></textarea>
+                      </div>
+
+                    <div class="row mb-3">
+                        <label for="newtaskdate" class="col-sm-3 col-form-label">DUE DATE</label>
+                        <div class="col-sm-4">
+                        <input type="date" class="form-control" id="newtaskdate">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="newtaskassignto" class="col-sm-2 col-form-label">ASSIGNED TO</label>
+                        <div class="col-sm-5">
+                        <input type="text" class="form-control" id="newtaskassignto">
+                        </div>
+                    </div>
+                    <!-- WE NEED TO MAKE THIS INLINE  -->
+                    <div class="row mb-3 col-md-3">
+                        <label for="inlineFormStatus" class="col-form-label" > STATUS </label>
+                        <!-- <div class="col-sm-10"> -->
+                            <select class="form-select ms-2" id="inlineFormStatus">
+                            <option selected>Choose...</option>
+                            <option value="1">TO DO</option>
+                            <option value="2">IN PROGRESS</option>
+                            <option value="3">REVIEW</option>
+                            <option value="4">DONE</option>
+                        <!-- </div> -->
+                        </select>
+                    </div>
+                    <fieldset class="row mb-3">
+                    <legend class="col-form-label col-sm-2 pt-0">DIFFICULTY </legend>
+                    <div class="col-sm-10">
+                        <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gridRadios" id="grid-difficulty-easy" value="option1" checked>
+                        <label class="form-check-label" for="grid-difficulty-easy">
+                            Easy
+                        </label>
+                        </div>
+                        <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gridRadios" id="grid-difficulty-normal" value="option2">
+                        <label class="form-check-label" for="grid-difficulty-normal">
+                            Normal
+                        </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gridRadios" id="grid-difficulty-hard" value="option3">
+                            <label class="form-check-label" for="grid-difficulty-hard">
+                            Hard
+                            </label>
+                        </div>
+                        
+                    </div>
+                    </fieldset>
+                    <div class="row mb-3">
+                    <!-- for future form -->
+                    </div>
+                    <div class="justify-content-md-end ">
+                        <button type="submit" class="btn btn-primary btn-lg mb-3 ">ADD TASK!</button>
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+            <!-- ADD TASK BUTTON -->
+
+    <!-- MAIN CONTENT ( 3 COLUMNS )  -->
+    <div class="container whatnow-sample">
+        <div class="row">
+          <div class="col whatnow-hard">
+            The scary stuff
+          </div>
+          <div class="col whatnow-normal">
+            The usual stuff
+          </div>
+          <div class="col whatnow-easy">
+            The Easy stuff
+          </div>
+        </div>
+      </div>
+            <!-- HARD TASK -->
+            <!-- NORMAL TASK -->
+            <!-- EASY TASK -->
+    <!-- SIDE CONTENT  -->
+        <!-- DEADLINES
+        COMPLETED -->
+
+        <!-- UPDATE TASK FORM -->
+            <!-- TITLE  -->
+            <!-- FORM -->
+            <!-- UPDATE BUTTON -->
+    <!-- FOOTER -->
 </body>
 </html>
