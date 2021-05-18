@@ -13,6 +13,6 @@ header,footer {
 .grid > * {
     background: lightgray;
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     justify-content: center;
     }

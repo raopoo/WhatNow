@@ -13,116 +13,244 @@
 
 </head>
 <body>
-    <!-- HEADER TITILE -->
-<header>
-    <h1> WHAT NOW? </h1>
-</header>
-
-
-    <!-- NEW TASK FORM -->
-            <!-- TITLE OF NEW TASK -->
-            <!-- FORM -->
-            <div class="container-md border bloddy-container">
-                <div class="mx-auto " style="width: 800px;">
-                    <h1 class="display-6 text-warning pt-3"><strong>CREATE NEW TASK</strong></h1></strong>
-                <form>
-                    <div class="row mb-3">
-                    <label for="newtasktitle" class="col-sm-1 col-form-label">TITLE</label>
-                    <div class="col-sm-6">
-                        <input type="text" class="form-control" id="newtasktitle">
+    <content>
+        <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Add a new task </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
+                    <div class="modal-body">
+            <!-- FORM FORM FORMY FORM  -->
+                        <form>
+                            <div class="row mb-5">
+                            <label for="newtasktitle" class="col-sm-1 col-form-label">TITLE</label>
+                            <div class="col ">
+                                <input type="text" class="form-control" id="newtasktitle">
+                            </div>
+                            </div>
+                            <div class="mb-3 col">
+                                <label for="newtaskdescription" class="form-label "> DESCRIPTION</label>
+                                <textarea class="form-control " id="newtaskdescription" rows="3"></textarea>
+                              </div>
+        
+                            <div class="row mb-3">
+                                <label for="newtaskdate" class="col-sm-3 col-form-label">DUE DATE</label>
+                                <div class="col">
+                                <input type="date" class="form-control" id="newtaskdate">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="newtaskassignto" class="col-sm-3 col-form-label">ASSIGNED TO</label>
+                                <div class="col">
+                                <input type="text" class="form-control" id="newtaskassignto">
+                                </div>
+                            </div>
+                            <!-- WE NEED TO MAKE THIS INLINE  -->
+                            <div class="row mb-3 col-md-7">
+                                <label for="inlineFormStatus" class="col-form-label" > STATUS </label>
+                                <!-- <div class="col-sm-10"> -->
+                                    <select class="form-select" id="inlineFormStatus">
+                                    <option selected>Choose...</option>
+                                    <option value="1">TO DO</option>
+                                    <option value="2">IN PROGRESS</option>
+                                    <option value="3">REVIEW</option>
+                                    <option value="4">DONE</option>
+                                <!-- </div> -->
+                                </select>
+                            </div>
+                            <fieldset class="row">
+                            <legend class="col-form-label col-sm-3 pt-0">DIFFICULTY </legend>
+                            <div class="col">
+                                <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="grid-difficulty-easy" value="option1" checked>
+                                <label class="form-check-label" for="grid-difficulty-easy">
+                                    Easy
+                                </label>
+                                </div>
+                                <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="grid-difficulty-normal" value="option2">
+                                <label class="form-check-label" for="grid-difficulty-normal">
+                                    Normal
+                                </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="gridRadios" id="grid-difficulty-hard" value="option3">
+                                    <label class="form-check-label" for="grid-difficulty-hard">
+                                    Hard
+                                    </label>
+                                </div>
+                                
+                            </div>
+                            </fieldset>
+                            <div class="row mb-3">
+                            <!-- for future form -->
+                            </div>
+                           
+                            
+                        </form>
                     </div>
-                    <div class="mb-3 col-md-7">
-                        <label for="newtaskdescription" class="form-label "> DESCRIPTION</label>
-                        <textarea class="form-control " id="newtaskdescription" rows="3"></textarea>
-                      </div>
-
-                    <div class="row mb-3">
-                        <label for="newtaskdate" class="col-sm-3 col-form-label">DUE DATE</label>
-                        <div class="col-sm-4">
-                        <input type="date" class="form-control" id="newtaskdate">
-                        </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Add Task</button>
                     </div>
-                    <div class="row mb-3">
-                        <label for="newtaskassignto" class="col-sm-2 col-form-label">ASSIGNED TO</label>
-                        <div class="col-sm-5">
-                        <input type="text" class="form-control" id="newtaskassignto">
-                        </div>
-                    </div>
-                    <!-- WE NEED TO MAKE THIS INLINE  -->
-                    <div class="row mb-3 col-md-3">
-                        <label for="inlineFormStatus" class="col-form-label" > STATUS </label>
-                        <!-- <div class="col-sm-10"> -->
-                            <select class="form-select ms-2" id="inlineFormStatus">
-                            <option selected>Choose...</option>
-                            <option value="1">TO DO</option>
-                            <option value="2">IN PROGRESS</option>
-                            <option value="3">REVIEW</option>
-                            <option value="4">DONE</option>
-                        <!-- </div> -->
-                        </select>
-                    </div>
-                    <fieldset class="row mb-3">
-                    <legend class="col-form-label col-sm-2 pt-0">DIFFICULTY </legend>
-                    <div class="col-sm-10">
-                        <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gridRadios" id="grid-difficulty-easy" value="option1" checked>
-                        <label class="form-check-label" for="grid-difficulty-easy">
-                            Easy
-                        </label>
-                        </div>
-                        <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gridRadios" id="grid-difficulty-normal" value="option2">
-                        <label class="form-check-label" for="grid-difficulty-normal">
-                            Normal
-                        </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="gridRadios" id="grid-difficulty-hard" value="option3">
-                            <label class="form-check-label" for="grid-difficulty-hard">
-                            Hard
-                            </label>
-                        </div>
-                        
-                    </div>
-                    </fieldset>
-                    <div class="row mb-3">
-                    <!-- for future form -->
-                    </div>
-                    <div class="justify-content-md-end ">
-                        <button type="submit" class="btn btn-primary btn-lg mb-3 ">ADD TASK!</button>
-                    </div>
-                    
-                </form>
+                </div>
+                </div>
             </div>
-        </div>
-            <!-- ADD TASK BUTTON -->
+    </content>
+    <div class="grid">
+        <header>
+        What Now?
+        </header>
+        <main>
+        <div class="container">
+            <div class="row ">
+              <div class="col whatnow-hard">
+                <h1>The scary stuff</h1>
+            <!-- bottstrap list group  -->
+                <ul class="list-group">
+                    <li class="list-group-item">An item</li>
+            <!-- bootstrap card  -->
+                    <li class="list-group-item">
+                        <div class="card text-center">
+                            <div class="card-header">
+                              In Progress
+                            </div>
+                            <div class="card-body">
+                              <h5 class="card-title">Full Stack Development</h5>
+                              <h6 class="card-subtitle mb-2 text-muted"> Asigned to Pooja</h6>
+                              <p class="card-text">Practice all the modules of the course  </p>
+                              <a href="#" class="btn btn-primary"> Modify</a>
+                            </div>
+                            <div class="card-footer text-muted">
+                              due on 20/06/21
+                            </div>
+                          </div>    
+                    </li>
+                    
+                  </ul>
 
-    <!-- MAIN CONTENT ( 3 COLUMNS )  -->
-    <div class="container whatnow-sample">
-        <div class="row">
-          <div class="col whatnow-hard">
-            The scary stuff
-          </div>
-          <div class="col whatnow-normal">
-            The usual stuff
-          </div>
-          <div class="col whatnow-easy">
-            The Easy stuff
-          </div>
-        </div>
-      </div>
-            <!-- HARD TASK -->
-            <!-- NORMAL TASK -->
-            <!-- EASY TASK -->
-    <!-- SIDE CONTENT  -->
-        <!-- DEADLINES
-        COMPLETED -->
+              </div>
+              <div class="col whatnow-normal">
+                <h1>The usual stuff</h1>
 
-        <!-- UPDATE TASK FORM -->
-            <!-- TITLE  -->
-            <!-- FORM -->
-            <!-- UPDATE BUTTON -->
-    <!-- FOOTER -->
+                <ul class="list-group">
+                        <li class="list-group-item">
+                            <div class="card text-center">
+                                <div class="card-header">
+                                  IN PROGRESS
+                                </div>
+                                <div class="card-body">
+                                  <h5 class="card-title"> Web Page Design</h5>
+                                  <h6 class="card-subtitle mb-2 text-muted"> Asigned to Pooja</h6>
+                                  <p class="card-text"> Decide on colors, sizes, margins etc for the webpage BakeWithMe  </p>
+                                  <a href="#" class="btn btn-primary"> Modify</a>
+                                </div>
+                                <div class="card-footer text-muted">
+                                  due on the 18/05/2021
+                                </div>
+                              </div>    
+                        </li>
+                    <li class="list-group-item">
+                        <div class="card text-center">
+                            <div class="card-header">
+                              In Progress
+                            </div>
+                            <div class="card-body">
+                              <h5 class="card-title"> Card Layout</h5>
+                              <h6 class="card-subtitle mb-2 text-muted"> Asigned to Ivan</h6>
+                              <p class="card-text"> Set the sidebar, add the button of add new task, so that it pops up the form.  </p>
+                              <a href="#" class="btn btn-primary"> Modify</a>
+                            </div>
+                            <div class="card-footer text-muted">
+                              18/05/21
+                            </div>
+                          </div>    
+                    </li>
+                    <li class="list-group-item">
+                        <div class="card text-center">
+                            <div class="card-header">
+                              In Progress
+                            </div>
+                            <div class="card-body">
+                              <h5 class="card-title">Dance Choreography</h5>
+                              <h6 class="card-subtitle mb-2 text-muted"> Asigned to June</h6>
+                              <p class="card-text">Complete the Choreography for the song Shape of you </p>
+                              <a href="#" class="btn btn-primary"> Modify</a>
+                            </div>
+                            <div class="card-footer text-muted">
+                              21/05/21
+                            </div>
+                          </div>    
+                    </li>
+                   
+                  </ul>
+              </div>
+              <div class="col whatnow-easy">
+                <h1>The Easy stuff</h1>
+
+                <ul class="list-group">
+                    <li class="list-group-item">An item</li>
+                    <li class="list-group-item">A second item</li>
+                    <li class="list-group-item">
+                        <div class="card text-center">
+                            <div class="card-header">
+                              In Progress
+                            </div>
+                            <div class="card-body">
+                              <h5 class="card-title"> Grocery Shopping</h5>
+                              <h6 class="card-subtitle mb-2 text-muted"> Asigned to Pooja</h6>
+                              <p class="card-text">Buy ingredients to bake a chocolate cake  </p>
+                              <a href="#" class="btn btn-primary"> Modify</a>
+                            </div>
+                            <div class="card-footer text-muted">
+                              due on 20/05/21
+                            </div>
+                          </div>    
+                    </li>
+                    <li class="list-group-item">A fourth item</li>
+                    <li class="list-group-item">
+                        <div class="card text-center">
+                            <div class="card-header">
+                              In Progress
+                            </div>
+                            <div class="card-body">
+                              <h5 class="card-title">Gaming System</h5>
+                              <h6 class="card-subtitle mb-2 text-muted"> Asigned to Dan</h6>
+                              <p class="card-text">Find a Gaming laptop</p>
+                              <a href="#" class="btn btn-primary"> Modify</a>
+                            </div>
+                            <div class="card-footer text-muted">
+                              due on 25/05/21
+                            </div>
+                          </div>    
+                    </li>
+                  </ul>
+              </div>
+            </div>
+          </div>
+        </main>
+        <aside>
+            <!-- Button trigger modal -->
+
+            <div class="container pt-3 ">
+                What Now Sidebar
+                <div class="row align-items-start p-3">
+                    
+                    <div class="col ">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Create New Task
+                        </button>
+                    </div>
+                </div>
+            </div>
+        
+        </aside>
+        <footer>
+        Project by Ivan and Pooja 
+        </footer>
+        </div>
 </body>
 </html>
