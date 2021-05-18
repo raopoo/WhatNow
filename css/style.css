@@ -1,34 +1,18 @@
-.bloddy-container {
-font-weight: bold;
-}
-
-header {
-    text-align: center;
-    font-weight: bold;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    color: #FFB800;
-    background-color:#971B8A;
-    min-height: 80px;
-    padding-top: 20px;
-}
-
-.whatnow-sample {
-    margin: 10px;
-
-}
-
-.whatnow-hard {
-    margin: 10px;
-    height: 400px;
-    background-color: #813939;
-}
-.whatnow-normal {
-    margin: 10px;
-    height: 400px;
-    background-color: #62B4FF;
-}
-.whatnow-easy {
-    margin: 10px;
-    height: 400px;
-    background-color: #74F881;
-}
+.grid {
+    display: grid;
+    grid-template-columns: 75% 25%;
+    grid-template-rows: 70px auto 70px;
+    grid-gap: 1em;
+    }
+    
+header,footer {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    }
+    
+.grid > * {
+    background: lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
