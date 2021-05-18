@@ -2,17 +2,33 @@
     display: grid;
     grid-template-columns: 75% 25%;
     grid-template-rows: 70px auto 70px;
-    grid-gap: 1em;
+    grid-column-gap: 1em;
     }
     
 header,footer {
     grid-column-start: 1;
     grid-column-end: 3;
+    background-color: #971B8A ;
+    justify-content: center;
+    text-align: center;
     }
     
-.grid > * {
-    background: lightgray;
+.whatnow-sidebar{
+    background-color: #DC9BEC;
+    min-height: 100%;
+    ;
+}
+.whatnow-title{
+    color: #FFB800;
+font-family: Bungee, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+/* .grid > * {
     display: flex;
-    /* align-items: center; */
+    align-items: center;
     justify-content: center;
+    } */
+
+    h1, h3 {
+        color: #FFB800;
+        font-family: Bungee, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; 
     }
