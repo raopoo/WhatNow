@@ -32,33 +32,33 @@
             <!-- FORM FORM FORMY FORM  -->
                         <form>
                             <div class="row mb-5">
-                            <label for="newtasktitle" class="col-sm-1 col-form-label">TITLE</label>
+                            <label for="newTaskTitle" class="col-sm-1 col-form-label">TITLE</label>
                             <div class="col ">
-                                <input type="text" class="form-control" id="newtasktitle">
+                                <input type="text" class="form-control" id="newTaskTitle">
                             </div>
                             </div>
                             <div class="mb-3 col">
-                                <label for="newtaskdescription" class="form-label "> DESCRIPTION</label>
-                                <textarea class="form-control " id="newtaskdescription" rows="3"></textarea>
+                                <label for="newTaskDescription" class="form-label "> DESCRIPTION</label>
+                                <textarea class="form-control " id="newTaskDescription" rows="3"></textarea>
                               </div>
         
                             <div class="row mb-3">
-                                <label for="newtaskdate" class="col-sm-3 col-form-label">DUE DATE</label>
+                                <label for="newTaskDate" class="col-sm-3 col-form-label">DUE DATE</label>
                                 <div class="col">
-                                <input type="date" class="form-control" id="newtaskdate">
+                                <input type="date" class="form-control" id="newTaskDate">
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label for="newtaskassignto" class="col-sm-3 col-form-label">ASSIGNED TO</label>
+                                <label for="newTaskAssignTo" class="col-sm-3 col-form-label">ASSIGNED TO</label>
                                 <div class="col">
-                                <input type="text" class="form-control" id="newtaskassignto">
+                                <input type="text" class="form-control" id="newTaskAssignTo">
                                 </div>
                             </div>
                             <!-- WE NEED TO MAKE THIS INLINE  -->
                             <div class="row mb-3 col-md-7">
-                                <label for="inlineFormStatus" class="col-form-label" > STATUS </label>
+                                <label for="newTaskStatus" class="col-form-label" > STATUS </label>
                                 <!-- <div class="col-sm-10"> -->
-                                    <select class="form-select" id="inlineFormStatus">
+                                    <select class="form-select" id="newTaskStatus">
                                     <option selected>Choose...</option>
                                     <option value="1">TO DO</option>
                                     <option value="2">IN PROGRESS</option>
@@ -71,20 +71,20 @@
                             <legend class="col-form-label col-sm-3 pt-0">DIFFICULTY </legend>
                             <div class="col">
                                 <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="grid-difficulty-easy" value="option1" checked>
-                                <label class="form-check-label" for="grid-difficulty-easy">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="newTaskEasy" value="option1" checked>
+                                <label class="form-check-label" for="newTaskEasy">
                                     Easy
                                 </label>
                                 </div>
                                 <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="grid-difficulty-normal" value="option2">
-                                <label class="form-check-label" for="grid-difficulty-normal">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="newTaskNormal" value="option2">
+                                <label class="form-check-label" for="newTaskNormal">
                                     Normal
                                 </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="gridRadios" id="grid-difficulty-hard" value="option3">
-                                    <label class="form-check-label" for="grid-difficulty-hard">
+                                    <input class="form-check-input" type="radio" name="gridRadios" id="newTaskDard" value="option3">
+                                    <label class="form-check-label" for="newTaskDard">
                                     Hard
                                     </label>
                                 </div>
@@ -99,8 +99,10 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Add Task</button>
+                      <!-- To display error message --> 
+                      <span id=errMsgNewTask></span>
+                    <button type="button"  class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" id="addTaskBtn" class="btn btn-primary">Add Task</button>
                     </div>
                 </div>
                 </div>
@@ -169,6 +171,9 @@
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             Create New Task
                         </button>
+                        <button type="button" class="btn btn-primary" id="btnTest">
+                          Test
+                      </button>
                     </div>
                     
                 </div>
