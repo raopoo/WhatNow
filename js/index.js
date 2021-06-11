@@ -1,18 +1,9 @@
 
-// newTaskTitle
-// newTaskDescription
-// newTaskDate
-// newTaskAssignTo
-// newTaskStatus
-// newTaskEasy
-// newTaskNormal
-// newTaskDard
+// testing the function in taskmanger 
 let allTasks = new TaskManager();
 allTasks.addTask("new1","Add file", "Pooja", "15/06/2021", "inprogress", "easy");
 allTasks.addTask("new2","Get breakfast", "Ivan", "15/06/2021", "inprogress", "easy");
 console.log(allTasks.taskList);
-
-
 
 //Creating task form validation
 const validFormFieldInput = () => {
@@ -48,25 +39,23 @@ const validFormFieldInput = () => {
         errMsgNewTask.innerHTML = "Please select a valid option"; 
         }
 }
-addTaskBtn.addEventListener('click', validFormFieldInput);
 
-// // Example starter JavaScript for disabling form submissions if there are invalid fields
-// (function () {
-//     'use strict'
-  
-//     // Fetch all the forms we want to apply custom Bootstrap validation styles to
-//     var forms = document.querySelectorAll('.needs-validation')
-  
-//     // Loop over them and prevent submission
-//     Array.prototype.slice.call(forms)
-//       .forEach(function (form) {
-//         form.addEventListener('submit', function (event) {
-//           if (!form.checkValidity()) {
-//             event.preventDefault()
-//             event.stopPropagation()
-//           }
-  
-//           form.classList.add('was-validated')
-//         }, false)
-//       })
-//   })()
+// addTaskBtn.addEventListener('click', validFormFieldInput);
+
+(function () {
+    'use strict'
+    console.log("Hi");
+    const forms = document.querySelectorAll('.requires-validation')
+    Array.from(forms)
+      .forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+    
+          form.classList.add('was-validated')
+                 }, false)
+      })
+    })()
+

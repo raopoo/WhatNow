@@ -12,10 +12,13 @@
     <!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 <!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" 
+integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" 
+crossorigin="anonymous"></script>
 <!-- //Adding index and classes JS file -->
-<script src="./index.js"></script>
-<script src="./classes.js"></script>
+<script src="./js/taskmanager.js" defer ></script>
+<script src="./js/index.js" defer ></script>
+
 
 </head>
 <body>
@@ -29,44 +32,68 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
+
             <!-- FORM FORM FORMY FORM  -->
-                        <form>
+                        <form class="row g-3 mt-2 requires-validation" novalidate>
                             <div class="row mb-5">
                             <label for="newTaskTitle" class="col-sm-1 col-form-label">TITLE</label>
                             <div class="col ">
-                                <input type="text" class="form-control" id="newTaskTitle">
+                                <input type="text" class="form-control" id="newTaskTitle" required>
+                                <div class="valid-feedback">
+                                   Title looks good!
+                                </div>
+                                <div class="invalid-feedback">
+                                   Title is must be over 5 Characters!
+                                </div>
                             </div>
                             </div>
                             <div class="mb-3 col">
                                 <label for="newTaskDescription" class="form-label "> DESCRIPTION</label>
-                                <textarea class="form-control " id="newTaskDescription" rows="3"></textarea>
+                                <textarea class="form-control" id="newTaskDescription" placeholder="Please enter description of task" required></textarea>
+                                <div class="invalid-feedback">
+                                  Please enter a message in the textarea.
+                                </div>
+                                
                               </div>
         
-                            <div class="row mb-3">
+                           <div class="row mb-3">
                                 <label for="newTaskDate" class="col-sm-3 col-form-label">DUE DATE</label>
                                 <div class="col">
-                                <input type="date" class="form-control" id="newTaskDate">
+                                <input type="date" class="form-control" id="newTaskDate" required>
+                                <div class="valid-feedback">
+                                   Date is Accepted
                                 </div>
+                                <div class="invalid-feedback">
+                                   You must enter a valid date!>
+                                </div>
+                               </div>
                             </div>
-                            <div class="row mb-3">
+                             <div class="row mb-3">
                                 <label for="newTaskAssignTo" class="col-sm-3 col-form-label">ASSIGNED TO</label>
                                 <div class="col">
-                                <input type="text" class="form-control" id="newTaskAssignTo">
+                                <input type="text" class="form-control" id="newTaskAssignTo" required>
+                                <div class="valid-feedback">
+                                   Assigned to looks good!
                                 </div>
+                                <div class="invalid-feedback">
+                                   The Name must be over 5 Characters!
+                                </div>
+                              </div>
                             </div>
-                            <!-- WE NEED TO MAKE THIS INLINE  -->
-                            <div class="row mb-3 col-md-7">
+                     
+                          <div class="row mb-3 col-md-7">
                                 <label for="newTaskStatus" class="col-form-label" > STATUS </label>
-                                <!-- <div class="col-sm-10"> -->
-                                    <select class="form-select" id="newTaskStatus">
+                                <div class="col-sm-10">
+                                   <select class="form-select" id="newTaskStatus" required>
                                     <option selected>Choose...</option>
                                     <option value="1">TO DO</option>
                                     <option value="2">IN PROGRESS</option>
                                     <option value="3">REVIEW</option>
                                     <option value="4">DONE</option>
-                                <!-- </div> -->
-                                </select>
-                            </div>
+                                  </select>
+                                </div>
+                                
+                            </div>  
                             <fieldset class="row">
                             <legend class="col-form-label col-sm-3 pt-0">DIFFICULTY </legend>
                             <div class="col">
@@ -89,20 +116,24 @@
                                     </label>
                                 </div>
                                 
-                            </div>
+                            </div> 
                             </fieldset>
                             <div class="row mb-3">
-                            <!-- for future form -->
+                              <button type="button"  class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                              <p></p>
+                              <button class="btn btn-primary" type="submit"> Add Task! </button> 
+
                             </div>
                            
                             
                         </form>
+
                     </div>
+
                     <div class="modal-footer">
                       <!-- To display error message --> 
                       <span id=errMsgNewTask></span>
-                    <button type="button"  class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" id="addTaskBtn" class="btn btn-primary">Add Task</button>
+              
                     </div>
                 </div>
                 </div>
@@ -170,10 +201,7 @@
                     <div class="col ">
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             Create New Task
-                        </button>
-                        <button type="button" class="btn btn-primary" id="btnTest">
-                          Test
-                      </button>
+                        </button>                   
                     </div>
                     
                 </div>
@@ -207,3 +235,4 @@
         </div>
 </body>
 </html>
+
