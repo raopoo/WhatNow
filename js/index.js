@@ -1,9 +1,9 @@
 
 // testing the function in taskmanger 
 let allTasks = new TaskManager();
-allTasks.addTask("new1","Add file", "Pooja", "15/06/2021", "inprogress", "easy");
-allTasks.addTask("new2","Get breakfast", "Ivan", "15/06/2021", "inprogress", "easy");
-console.log(allTasks.taskList);
+// allTasks.addTask("new1","Add file", "Pooja", "15/06/2021", "inprogress", "easy");
+// allTasks.addTask("new2","Get breakfast", "Ivan", "15/06/2021", "inprogress", "easy");
+// console.log(allTasks.taskList);
 
 //Creating task form validation
 const validFormFieldInput = () => {
@@ -15,6 +15,7 @@ const validFormFieldInput = () => {
     let newTaskDate = document.querySelector("#newTaskDate").value;
     let newTaskAssignTo = document.querySelector("#newTaskAssignTo").value;
     let newTaskStatus = document.querySelector("#newTaskStatus").value;
+    let taskLevel = "Easy";
     //Validatiing title
    if(newTaskTitle === "" || newTaskTitle.length < 4){
     newTaskTitle.classList.add(':invalid');
@@ -39,23 +40,36 @@ const validFormFieldInput = () => {
         errMsgNewTask.innerHTML = "Please select a valid option"; 
         }
 }
+const experiment = () => {
+ 
+    let newTaskTitle = document.querySelector("#newTaskTitle").value;
+    let newTaskDescription = document.querySelector("#newTaskDescription").value;
+    let newTaskDate = document.querySelector("#newTaskDate").value;
+    let newTaskAssignTo = document.querySelector("#newTaskAssignTo").value;
+    let newTaskStatus = document.querySelector("#newTaskStatus").value;
+    let taskLevel = "Easy";
+  allTasks.addTask(newTaskTitle, newTaskDescription, newTaskAssignTo, newTaskDate, newTaskStatus, taskLevel);
+  console.log(allTasks.taskList);
+  console.log(newTaskTitle);
+}
 
-// addTaskBtn.addEventListener('click', validFormFieldInput);
+addTaskBtn.addEventListener('click', experiment);
 
-(function () {
-    'use strict'
-    console.log("Hi");
-    const forms = document.querySelectorAll('.requires-validation')
-    Array.from(forms)
-      .forEach(function (form) {
-        form.addEventListener('submit', function (event) {
-          if (!form.checkValidity()) {
-            event.preventDefault()
-            event.stopPropagation()
-          }
+// (function () {
+//     'use strict'
+//     console.log("Hi");
+//     const forms = document.querySelectorAll('.requires-validation')
+//     Array.from(forms)
+//       .forEach(function (form) {
+//         form.addEventListener('submit', function (event) {
+//           if (!form.checkValidity()) {
+//             event.preventDefault()
+//             event.stopPropagation()
+//           }
+         
+//           form.classList.add('was-validated')
+//                  }, false)
+//       }) 
     
-          form.classList.add('was-validated')
-                 }, false)
-      })
-    })()
+//     })()
 
