@@ -7,8 +7,13 @@
 // newTaskEasy
 // newTaskNormal
 // newTaskDard
-let newtask1 = new TaskManager('Ivan');
-console.log(newtask1.name);
+let allTasks = new TaskManager();
+allTasks.addTask("new1","Add file", "Pooja", "15/06/2021", "inprogress", "easy");
+allTasks.addTask("new2","Get breakfast", "Ivan", "15/06/2021", "inprogress", "easy");
+console.log(allTasks.taskList);
+
+
+
 //Creating task form validation
 const validFormFieldInput = () => {
     let forms = document.querySelector('.needs-validation');
