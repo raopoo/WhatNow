@@ -1,9 +1,6 @@
 
 //testing the function in taskmanger 
 let allTasks = new TaskManager();
-allTasks.addTask("new1","Add file", "Pooja", "15/06/2021", "inprogress", "easy");
-allTasks.addTask("new2","Get breakfast", "Ivan", "15/06/2021", "inprogress", "easy");
-console.log(allTasks.taskList);
 
 //Creating task form validation
 const validFormFieldInput = () => {
@@ -14,8 +11,7 @@ const validFormFieldInput = () => {
     let newTaskDescription = document.querySelector("#newTaskDescription").value;
     let newTaskDate = document.querySelector("#newTaskDate").value;
     let newTaskAssignTo = document.querySelector("#newTaskAssignTo").value;
-    let newTaskStatus = document.querySelector("#newTaskStatus").value;
-    let taskLevel = "Easy";
+    let newTaskStatus = document.querySelector("#newTaskStatus").value
     //Validatiing title
    if(newTaskTitle === "" || newTaskTitle.length < 4){
     newTaskTitle.classList.add(':invalid');
@@ -40,21 +36,17 @@ const validFormFieldInput = () => {
         errMsgNewTask.innerHTML = "Please select a valid option"; 
         }
 }
-const experiment = () => {
- 
+
+addTaskBtn.addEventListener('click', function (event) {
+  event.preventDefault();
     let newTaskTitle = document.querySelector("#newTaskTitle").value;
     let newTaskDescription = document.querySelector("#newTaskDescription").value;
     let newTaskDate = document.querySelector("#newTaskDate").value;
     let newTaskAssignTo = document.querySelector("#newTaskAssignTo").value;
     let newTaskStatus = document.querySelector("#newTaskStatus").value;
-    let taskLevel = "Easy";
-  allTasks.addTask(newTaskTitle, newTaskDescription, newTaskAssignTo, newTaskDate, newTaskStatus, taskLevel);
-  console.log(allTasks.taskList);
-  console.log(newTaskTitle);
-}
-
-addTaskBtn.addEventListener('click', experiment);
-
+  allTasks.addTask(newTaskTitle, newTaskDescription, newTaskAssignTo, newTaskDate, newTaskStatus);
+allTasks.render();
+});
 
 (function () {
     'use strict'
@@ -71,8 +63,9 @@ addTaskBtn.addEventListener('click', experiment);
           form.classList.add('was-validated')
                  }, false)
       }) 
-    })()
+    })();
 
 let taskHtml = createTaskHtml('poject work', 'Work on task1', 'Pooja', '12/08/21', 'In Progress');
 console.log(taskHtml);
+
 
