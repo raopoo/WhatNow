@@ -14,7 +14,8 @@ const validFormFieldInput = () => {
     let newTaskStatus = document.querySelector("#newTaskStatus").value
     //Validatiing title
    if(newTaskTitle === "" || newTaskTitle.length < 4){
-    newTaskTitle.classList.add(':invalid');
+    newTaskTitle.classList.add('is-invalid');
+
     errMsgNewTask.innerHTML = "Your title should be 5 or more characters";
     }
     //validating task discription
@@ -38,14 +39,9 @@ const validFormFieldInput = () => {
 }
 
 addTaskBtn.addEventListener('click', function (event) {
-  event.preventDefault();
-    let newTaskTitle = document.querySelector("#newTaskTitle").value;
-    let newTaskDescription = document.querySelector("#newTaskDescription").value;
-    let newTaskDate = document.querySelector("#newTaskDate").value;
-    let newTaskAssignTo = document.querySelector("#newTaskAssignTo").value;
-    let newTaskStatus = document.querySelector("#newTaskStatus").value;
-  allTasks.addTask(newTaskTitle, newTaskDescription, newTaskAssignTo, newTaskDate, newTaskStatus);
-allTasks.render();
+ 
+  
+
 });
 
 (function () {
@@ -59,7 +55,18 @@ allTasks.render();
             event.preventDefault()
             event.stopPropagation()
           }
-         
+          
+          else {
+          let newTaskTitle = document.querySelector("#newTaskTitle").value;
+          let newTaskDescription = document.querySelector("#newTaskDescription").value;
+          let newTaskDate = document.querySelector("#newTaskDate").value;
+          let newTaskAssignTo = document.querySelector("#newTaskAssignTo").value;
+          let newTaskStatus = document.querySelector("#newTaskStatus").value;
+        allTasks.addTask(newTaskTitle, newTaskDescription, newTaskAssignTo, newTaskDate, newTaskStatus);
+      allTasks.render();
+      event.preventDefault()
+      form.reset()
+          }
           form.classList.add('was-validated')
                  }, false)
       }) 
