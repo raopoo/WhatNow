@@ -1,13 +1,13 @@
 
-// testing the function in taskmanger 
+//testing the function in taskmanger 
 let allTasks = new TaskManager();
-// allTasks.addTask("new1","Add file", "Pooja", "15/06/2021", "inprogress", "easy");
-// allTasks.addTask("new2","Get breakfast", "Ivan", "15/06/2021", "inprogress", "easy");
-// console.log(allTasks.taskList);
+allTasks.addTask("new1","Add file", "Pooja", "15/06/2021", "inprogress", "easy");
+allTasks.addTask("new2","Get breakfast", "Ivan", "15/06/2021", "inprogress", "easy");
+console.log(allTasks.taskList);
 
 //Creating task form validation
 const validFormFieldInput = () => {
-    let forms = document.querySelector('.needs-validation');
+    // let forms = document.querySelector('.needs-validation');
     let newTaskTitle = document.querySelector("#newTaskTitle").value;
     let errMsgNewTask =  document.querySelector("#errMsgNewTask");
     let addTaskBtn = document.querySelector("#addTaskBtn");
@@ -55,21 +55,24 @@ const experiment = () => {
 
 addTaskBtn.addEventListener('click', experiment);
 
-// (function () {
-//     'use strict'
-//     console.log("Hi");
-//     const forms = document.querySelectorAll('.requires-validation')
-//     Array.from(forms)
-//       .forEach(function (form) {
-//         form.addEventListener('submit', function (event) {
-//           if (!form.checkValidity()) {
-//             event.preventDefault()
-//             event.stopPropagation()
-//           }
+
+(function () {
+    'use strict'
+    console.log("Hi");
+    const forms = document.querySelectorAll('.requires-validation')
+    Array.from(forms)
+      .forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
          
-//           form.classList.add('was-validated')
-//                  }, false)
-//       }) 
-    
-//     })()
+          form.classList.add('was-validated')
+                 }, false)
+      }) 
+    })()
+
+let taskHtml = createTaskHtml('poject work', 'Work on task1', 'Pooja', '12/08/21', 'In Progress');
+console.log(taskHtml);
 
