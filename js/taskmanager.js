@@ -1,8 +1,8 @@
 const sampleCard = document.querySelector("#sampleCard");
 
 
-const createTaskHtml = (taskTitle,taskDescription,taskAssignedTo,taskDueDate,taskStatus) => {
-    const displaytask = `<li class="list-group-item">
+const createTaskHtml = (taskId, taskTitle,taskDescription,taskAssignedTo,taskDueDate,taskStatus) => {
+    const displaytask = `<li class="list-group-item data-taskid="${taskId}">
     <div class="card text-center">
         <div class="card-header">
         ${taskStatus}
@@ -58,7 +58,7 @@ class TaskManager{
            let currentTask = this.taskList[i];
            let currentdate = new Date(currentTask.DueDate);
            let formattedDate =currentdate.getDate() + "/" + (currentdate.getMonth() + 1) + "/" + currentdate.getFullYear();
-           let taskHtml = createTaskHtml(currentTask.Title, currentTask.Description, currentTask.AssignedTo, formattedDate, currentTask.Status);
+           let taskHtml = createTaskHtml(currentTask.Id, currentTask.Title, currentTask.Description, currentTask.AssignedTo, formattedDate, currentTask.Status);
            tasksHtmlLists.push(taskHtml);
 
        }
