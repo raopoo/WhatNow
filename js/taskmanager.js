@@ -1,8 +1,10 @@
 const sampleCard = document.querySelector("#sampleCard");
 
 
-const createTaskHtml = (taskId, taskTitle,taskDescription,taskAssignedTo,taskDueDate,taskStatus) => {
-    const displaytask = `<li class="list-group-item data-taskid="${taskId}">
+
+const createTaskHtml = (currentId,taskTitle,taskDescription,taskAssignedTo,taskDueDate,taskStatus) => {
+    const displaytask = `<li class="list-group-item" data-current="${currentId}" >
+
     <div class="card text-center">
         <div class="card-header">
         ${taskStatus}
@@ -12,6 +14,7 @@ const createTaskHtml = (taskId, taskTitle,taskDescription,taskAssignedTo,taskDue
           <h6 class="card-subtitle mb-2 text-muted"> Assigned to ${taskAssignedTo}</h6>
           <p class="card-text">${taskDescription}  </p>
           <a href="#" class="btn btn-primary"> Modify</a>
+          <a href="#" class="btn btn-primary done-button"> Done</a>
         </div>
         <div class="card-footer text-muted">
         ${taskDueDate}
@@ -64,6 +67,19 @@ class TaskManager{
        }
        let taskHtml1 =  tasksHtmlLists.join("\n");
        sampleCard.innerHTML = taskHtml1;
+    }
+    //creating the getTaskbyID method
+    getTaskById(currentId){
+      let foundTask = {};
+      for(let i=0; i< this.taskList.length; i++){
+        if(this.taskList[i].Id === currentId){
+          foundTask = this.taskList[i];
+          return foundTask;
+
+        }
+      }
+
+
     }
   }
   
