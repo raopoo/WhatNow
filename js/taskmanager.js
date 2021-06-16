@@ -3,26 +3,48 @@ const sampleCard = document.querySelector("#sampleCard");
 
 
 const createTaskHtml = (currentId,taskTitle,taskDescription,taskAssignedTo,taskDueDate,taskStatus) => {
-    const displaytask = `<li class="list-group-item" data-current="${currentId}" >
+  let displaytask = '';
+  if (taskStatus==="Done") {
+    displaytask = `<li class="list-group-item" data-current="${currentId}" >
 
-    <div class="card text-center">
-        <div class="card-header">
-        ${taskStatus}
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">${taskTitle}</h5>
-          <h6 class="card-subtitle mb-2 text-muted"> Assigned to ${taskAssignedTo}</h6>
-          <p class="card-text">${taskDescription}  </p>
-          <a href="#" class="btn btn-primary"> Modify</a>
-          <a href="#" class="btn btn-primary done-button"> Done</a>
-        </div>
-        <div class="card-footer text-muted">
-        ${taskDueDate}
-        </div>
-      </div>    
-</li>`
+        <div class="card text-center">
+            <div class="card-header">
+            ${taskStatus}
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">${taskTitle}</h5>
+              <h6 class="card-subtitle mb-2 text-muted"> Assigned to ${taskAssignedTo}</h6>
+              <p class="card-text">${taskDescription}  </p>
+              <a href="#" class="btn btn-primary"> Modify</a>
+            </div>
+            <div class="card-footer text-muted">
+            ${taskDueDate}
+            </div>
+          </div>    
+    </li>`
     return displaytask;
 
+  } else {
+        displaytask = `<li class="list-group-item" data-current="${currentId}" >
+
+        <div class="card text-center">
+            <div class="card-header">
+            ${taskStatus}
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">${taskTitle}</h5>
+              <h6 class="card-subtitle mb-2 text-muted"> Assigned to ${taskAssignedTo}</h6>
+              <p class="card-text">${taskDescription}  </p>
+              <a href="#" class="btn btn-primary"> Modify</a>
+              <a href="#" class="btn btn-primary done-button"> Done</a>
+            </div>
+            <div class="card-footer text-muted">
+            ${taskDueDate}
+            </div>
+          </div>    
+    </li>`
+    return displaytask;
+    }
 }
 
 
@@ -57,17 +79,20 @@ class TaskManager{
     render(){
        let tasksHtmlLists = [];
     
-       for(let i=0; i< this.taskList.length; i++){
-           let currentTask = this.taskList[i];
-           let currentdate = new Date(currentTask.DueDate);
-           let formattedDate =currentdate.getDate() + "/" + (currentdate.getMonth() + 1) + "/" + currentdate.getFullYear();
-           let taskHtml = createTaskHtml(currentTask.Id, currentTask.Title, currentTask.Description, currentTask.AssignedTo, formattedDate, currentTask.Status);
-           tasksHtmlLists.push(taskHtml);
+       for(let i=0; i< this.taskList.length; i++)
+              {
+              let currentTask = this.taskList[i];
+              let currentdate = new Date(currentTask.DueDate);
+              let formattedDate =currentdate.getDate() + "/" + (currentdate.getMonth() + 1) + "/" + currentdate.getFullYear();
+              let taskHtml = createTaskHtml(currentTask.Id, currentTask.Title, currentTask.Description, currentTask.AssignedTo, formattedDate, currentTask.Status);
+              tasksHtmlLists.push(taskHtml);
 
-       }
+             }
+
        let taskHtml1 =  tasksHtmlLists.join("\n");
        sampleCard.innerHTML = taskHtml1;
-    }
+           }
+
     //creating the getTaskbyID method
     getTaskById(currentId){
       let foundTask = {};

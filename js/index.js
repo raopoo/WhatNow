@@ -60,10 +60,8 @@ pageList.addEventListener('click', function (event) {
     let task = allTasks.getTaskById(taskId);
     task.Status = "Done";
     allTasks.render();
-   
+   /// remove the done button
+
    }
 });
-allTasks.addTask('poject work', 'Work on task1', 'Pooja', '12/08/21', 'In Progress');
-console.log(allTasks.taskList);
-console.log(allTasks.getTaskById(1));
 
