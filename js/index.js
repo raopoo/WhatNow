@@ -65,3 +65,14 @@ pageList.addEventListener('click', function (event) {
    }
 });
 
+// Possible java script solution to date validation
+// document.getElementById('datePicker').value = new Date().toDateInputValue();
+
+// posible whitespace solution
+// function validation(reg) {
+//   str = document.reg;
+//   if (str.name.value.trim() == "") {
+//       alert("Enter your name");
+//       str.name.focus();
+//       return false;
+//   }

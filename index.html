@@ -38,7 +38,7 @@ crossorigin="anonymous"></script>
                             <div class="row mb-5">
                             <label for="newTaskTitle" class="col-sm-1 col-form-label">TITLE</label>
                             <div class="col ">
-                                <input type="text" class="form-control" id="newTaskTitle" required minlength="5" >
+                                <input type="text" class="form-control" id="newTaskTitle" required minlength="5" pattern="^[^-\s][a-zA-Z0-9_\s-]+$" >
                                 <div class="valid-feedback">
                                    Title looks good!
                                 </div>
@@ -49,7 +49,7 @@ crossorigin="anonymous"></script>
                             </div>
                             <div class="mb-3 col">
                                 <label for="newTaskDescription" class="form-label "> DESCRIPTION</label>
-                                <textarea class="form-control" id="newTaskDescription" placeholder="Please enter description of task" required minlength="5"></textarea>
+                                <textarea class="form-control" id="newTaskDescription" placeholder="Please enter description of task" required minlength="5" pattern="^[^-\s][a-zA-Z0-9_\s-]+$"></textarea>
                                 <div class="invalid-feedback">
                                   Please enter a message in the textarea.
                                 </div>
@@ -71,7 +71,7 @@ crossorigin="anonymous"></script>
                              <div class="row mb-3">
                                 <label for="newTaskAssignTo" class="col-sm-3 col-form-label">ASSIGNED TO</label>
                                 <div class="col">
-                                <input type="text" class="form-control" id="newTaskAssignTo" required minlength="5">
+                                <input type="text" class="form-control" id="newTaskAssignTo" required minlength="5" pattern="^[^-\s][a-zA-Z0-9_\s-]+$">
                                 <div class="valid-feedback">
                                    Assigned to looks good!
                                 </div>
