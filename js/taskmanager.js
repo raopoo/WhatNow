@@ -61,7 +61,6 @@ class TaskManager{
            let formattedDate =currentdate.getDate() + "/" + (currentdate.getMonth() + 1) + "/" + currentdate.getFullYear();
            let taskHtml = createTaskHtml(currentTask.Id, currentTask.Title, currentTask.Description, currentTask.AssignedTo, formattedDate, currentTask.Status);
            tasksHtmlLists.push(taskHtml);
-
        }
        let taskHtml1 =  tasksHtmlLists.join("\n");
        sampleCard.innerHTML = taskHtml1;
