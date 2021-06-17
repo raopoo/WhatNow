@@ -34,11 +34,11 @@ crossorigin="anonymous"></script>
                     <div class="modal-body">
 
             <!-- FORM FORM FORMY FORM  -->
-                        <form class="row g-3 mt-2 requires-validation" novalidate>
+                        <form class="row g-3 mt-2 requires-validation" id="modal-form" novalidate>
                             <div class="row mb-5">
                             <label for="newTaskTitle" class="col-sm-1 col-form-label">TITLE</label>
                             <div class="col ">
-                                <input type="text" class="form-control" id="newTaskTitle" required>
+                                <input type="text" class="form-control" id="newTaskTitle" required minlength="5" pattern="^[^-\s][a-zA-Z0-9_\s-]+$" >
                                 <div class="valid-feedback">
                                    Title looks good!
                                 </div>
@@ -49,7 +49,7 @@ crossorigin="anonymous"></script>
                             </div>
                             <div class="mb-3 col">
                                 <label for="newTaskDescription" class="form-label "> DESCRIPTION</label>
-                                <textarea class="form-control" id="newTaskDescription" placeholder="Please enter description of task" required></textarea>
+                                <textarea class="form-control" id="newTaskDescription" placeholder="Please enter description of task" required minlength="5" pattern="^[^-\s][a-zA-Z0-9_\s-]+$"></textarea>
                                 <div class="invalid-feedback">
                                   Please enter a message in the textarea.
                                 </div>
@@ -71,7 +71,7 @@ crossorigin="anonymous"></script>
                              <div class="row mb-3">
                                 <label for="newTaskAssignTo" class="col-sm-3 col-form-label">ASSIGNED TO</label>
                                 <div class="col">
-                                <input type="text" class="form-control" id="newTaskAssignTo" required>
+                                <input type="text" class="form-control" id="newTaskAssignTo" required minlength="5" pattern="^[^-\s][a-zA-Z0-9_\s-]+$">
                                 <div class="valid-feedback">
                                    Assigned to looks good!
                                 </div>
@@ -85,7 +85,7 @@ crossorigin="anonymous"></script>
                                 <label for="newTaskStatus" class="col-form-label" > STATUS </label>
                                 <div class="col-sm-10">
                                    <select class="form-select" id="newTaskStatus" required>
-                                    <option selected>Choose...</option>
+                                    <option selected></option>
                                     <option value="1">TO DO</option>
                                     <option value="2">IN PROGRESS</option>
                                     <option value="3">REVIEW</option>
@@ -154,21 +154,23 @@ crossorigin="anonymous"></script>
                 <ul class="list-group " id="sampleCard">
                     <li class="list-group-item " ></li>
             <!-- bootstrap card  -->
+
                     <li class="list-group-item">
                         <div class="card text-center">
                             <div class="card-header">
-                              In Progress
+                              Done
                             </div>
                             <div class="card-body">
-                              <h5 class="card-title">Full Stack Development</h5>
+                              <h5 class="card-title">SAMPLE CARD</h5>
                               <h6 class="card-subtitle mb-2 text-muted"> Asigned to Pooja</h6>
-                              <p class="card-text">Practice all the modules of the course  </p>
+                              <p class="card-text"> SAMPLE TASK DESCRIPTION  </p>
                               <a href="#" class="btn btn-primary"> Modify</a>
-                              <a href="#" class="btn btn-primary done-button"> Done</a>
+                    
                             </div>
                             <div class="card-footer text-muted">
                               due on 20/06/21
                             </div>
+
                           </div>    
                     </li>
                     

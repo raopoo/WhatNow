@@ -1,7 +1,17 @@
 
 //testing the function in taskmanger 
 let allTasks = new TaskManager();
+
 //Bootstrap form validation
+var myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
+
+const clearform = () => {
+  document.querySelector("#newTaskTitle").value = "";
+  document.querySelector("#newTaskDescription").value = "";
+  document.querySelector("#newTaskDate").value = "";
+  document.querySelector("#newTaskAssignTo").value = "";
+  
+}
 (function () {
     'use strict'
     console.log("Hi");
@@ -23,10 +33,13 @@ let allTasks = new TaskManager();
 
           allTasks.addTask(newTaskTitle, newTaskDescription, newTaskAssignTo, newTaskDate, newTaskStatus);
           allTasks.render();
-          event.preventDefault()
-          form.reset()
+                 event.preventDefault();
+                 clearform();
+                //  form.classList.remove('was-validated');
+                 myModal.hide();
+
         }
-       form.classList.add('was-validated')
+       form.classList.add('was-validated');
       }, false)
      }) 
     })();
@@ -47,9 +60,19 @@ pageList.addEventListener('click', function (event) {
     let task = allTasks.getTaskById(taskId);
     task.Status = "Done";
     allTasks.render();
+   /// remove the done button
+
    }
 });
-allTasks.addTask('poject work', 'Work on task1', 'Pooja', '12/08/21', 'In Progress');
-console.log(allTasks.taskList);
-console.log(allTasks.getTaskById(1));
 
+// Possible java script solution to date validation
+// document.getElementById('datePicker').value = new Date().toDateInputValue();
+
+// posible whitespace solution
+// function validation(reg) {
+//   str = document.reg;
+//   if (str.name.value.trim() == "") {
+//       alert("Enter your name");
+//       str.name.focus();
+//       return false;
+//   }
