@@ -35,7 +35,7 @@ const clearform = () => {
           allTasks.render();
                  event.preventDefault();
                  clearform();
-                
+                //  form.classList.remove('was-validated');
                  myModal.hide();
 
         }
