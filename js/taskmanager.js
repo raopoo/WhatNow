@@ -1,8 +1,9 @@
-const sampleCard = document.querySelector("#sampleCard");
+const taskHard = document.querySelector("#whatnow-hard");
+const taskNormal = document.querySelector("#whatnow-normal");
+const taskEasy = document.querySelector("#whatnow-easy");
 
 
-
-const createTaskHtml = (currentId,taskTitle,taskDescription,taskAssignedTo,taskDueDate,taskStatus) => {
+const createTaskHtml = (currentId,taskTitle,taskDescription,taskAssignedTo,taskDueDate,taskStatus,taskDiff) => {
   let displaytask = '';
   if (taskStatus==="Done") {
     displaytask = `<li class="list-group-item" data-current="${currentId}" >
@@ -53,7 +54,7 @@ class TaskManager{
         this.taskId=[currentId]; 
         this.taskList = [];
     }
-    addTask(taskTitle,taskDescription,taskAssignedTo,taskDueDate,taskStatus){
+    addTask(taskTitle,taskDescription,taskAssignedTo,taskDueDate,taskStatus,taskDiff){
         this.taskId++;
         let convertedStatus='';
         if (taskStatus === '1'){
@@ -72,25 +73,48 @@ class TaskManager{
             AssignedTo : taskAssignedTo,
             DueDate : taskDueDate,
             Status : convertedStatus,
+            Difficulty : taskDiff
   
         }
         this.taskList.push(sampleTask);
     }
+    checkButton(){
+     let radio = document.getElementsByName('gridRadios');
+              
+            for(i = 0; i < radio.length; i++) {
+                if(radio[i].checked){
+               return radio[i].value; 
+                }
+            }
+    }
     render(){
        let tasksHtmlLists = [];
+       let taskHtmlHard =[];
+       let taskHtmlEasy = [];
+       let taskHtmlNormal = [];
     
        for(let i=0; i< this.taskList.length; i++)
               {
               let currentTask = this.taskList[i];
               let currentdate = new Date(currentTask.DueDate);
               let formattedDate =currentdate.getDate() + "/" + (currentdate.getMonth() + 1) + "/" + currentdate.getFullYear();
-              let taskHtml = createTaskHtml(currentTask.Id, currentTask.Title, currentTask.Description, currentTask.AssignedTo, formattedDate, currentTask.Status);
-              tasksHtmlLists.push(taskHtml);
-
-             }
-
-       let taskHtml1 =  tasksHtmlLists.join("\n");
-       sampleCard.innerHTML = taskHtml1;
+              // Depending on difficulty, push html code to a new variable
+              if(currentTask.taskDiff === "Hard"){
+                taskHtmlHard.push(createTaskHtml(currentTask.Id, currentTask.Title, currentTask.Description, currentTask.AssignedTo, formattedDate, currentTask.Status, currentTask.Difficulty));
+              }else if(currentTask.taskDiff === "Normal"){
+                taskHtmlNormal.push(createTaskHtml(currentTask.Id, currentTask.Title, currentTask.Description, currentTask.AssignedTo, formattedDate, currentTask.Status, currentTask.Difficulty));
+              }else if(currentTask.taskDiff === "Easy"){
+                taskHtmlEasy.push(createTaskHtml(currentTask.Id, currentTask.Title, currentTask.Description, currentTask.AssignedTo, formattedDate, currentTask.Status, currentTask.Difficulty));
+              }
+              
+              //tasksHtmlLists.push(taskHtml);
+            }
+        let finalHard =  taskHtmlHard.join("\n");
+        let finalNormal =  taskHtmlNormal.join("\n");
+        let finalEasy =  taskHtmlEasy.join("\n");
+       taskHard.innerHTML = finalHard;
+       taskEasy.innerHTML = finalEasy;
+       taskNormal.innerHTML = finalNormal;
      }
 
     //creating the getTaskbyID method
