@@ -1,7 +1,8 @@
 
 //testing the function in taskmanger 
 let allTasks = new TaskManager();
-
+allTasks.load();
+allTasks.render();
 //Bootstrap form validation
 var myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
 
@@ -14,7 +15,7 @@ const clearform = () => {
 }
 (function () {
     'use strict'
-    console.log("Hi");
+    //console.log("Hi");
     const forms = document.querySelectorAll('.requires-validation')
     Array.from(forms)
       .forEach(function (form) {
@@ -33,11 +34,13 @@ const clearform = () => {
 
           allTasks.addTask(newTaskTitle, newTaskDescription, newTaskAssignTo, newTaskDate, newTaskStatus);
           allTasks.render();
+          allTasks.save();
                  event.preventDefault();
                  clearform();
                 //  form.classList.remove('was-validated');
                  myModal.hide();
-
+                 
+                 
         }
        form.classList.add('was-validated');
       }, false)
@@ -65,14 +68,3 @@ pageList.addEventListener('click', function (event) {
    }
 });
 
-// Possible java script solution to date validation
-// document.getElementById('datePicker').value = new Date().toDateInputValue();
-
-// posible whitespace solution
-// function validation(reg) {
-//   str = document.reg;
-//   if (str.name.value.trim() == "") {
-//       alert("Enter your name");
-//       str.name.focus();
-//       return false;
-//   }

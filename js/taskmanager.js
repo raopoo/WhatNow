@@ -91,7 +91,7 @@ class TaskManager{
 
        let taskHtml1 =  tasksHtmlLists.join("\n");
        sampleCard.innerHTML = taskHtml1;
-           }
+     }
 
     //creating the getTaskbyID method
     getTaskById(currentId){
@@ -103,8 +103,28 @@ class TaskManager{
 
         }
       }
-
-
     }
+    //Save method for local storage
+    save(){
+      let currentId = String(this.taskId);
+      let taskJson = JSON.stringify(this.taskList);
+      localStorage.setItem("Task",taskJson);
+      localStorage.setItem("currentId",currentId);
+      //alert(taskJson);
+    }
+    // Load method for local storage
+    load(){
+     if(localStorage.getItem("Task")){
+       let taskJson = localStorage.getItem("Task");
+       this.taskList = JSON.parse(taskJson);
+     }
+     if(localStorage.getItem("currentId")){
+      let currentId = localStorage.getItem("currentId");
+      this.taskId = Number(currentId);
+     }
+    }
+
   }
+
+
   
