@@ -98,20 +98,20 @@ crossorigin="anonymous"></script>
                             <legend class="col-form-label col-sm-3 pt-0">DIFFICULTY </legend>
                             <div class="col">
                                 <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="newTaskEasy" value="option1" checked>
+                                <input class="form-check-input" type="radio" name="gridRadios" id="newTaskEasy" value="easy" checked>
                                 <label class="form-check-label" for="newTaskEasy">
                                     Easy
                                 </label>
                                 </div>
                                 <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="newTaskNormal" value="option2">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="newTaskNormal" value="normal">
                                 <label class="form-check-label" for="newTaskNormal">
                                     Normal
                                 </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="gridRadios" id="newTaskDard" value="option3">
-                                    <label class="form-check-label" for="newTaskDard">
+                                    <input class="form-check-input" type="radio" name="gridRadios" id="newTaskHard" value="hard">
+                                    <label class="form-check-label" for="newTaskHard">
                                     Hard
                                     </label>
                                 </div>
@@ -148,24 +148,24 @@ crossorigin="anonymous"></script>
         <main>
         <div class="container pt-3 text-center">
             <div class="row ">
-              <div class="col whatnow-hard">
+              <div class="col">
                 <h3>The scary stuff</h3>
             <!-- bottstrap list group  -->
-                <ul class="list-group " id="sampleCard">
+                <ul class="list-group sampleCard" id="whatnow-hard">
                     <li class="list-group-item " ></li>
             <!-- bootstrap card  -->
 
                     <li class="list-group-item">
                         <div class="card text-center">
                             <div class="card-header">
-                              Done
+                              In Progress
                             </div>
                             <div class="card-body">
-                              <h5 class="card-title">SAMPLE CARD</h5>
+                              <h5 class="card-title">SAMPLE CARD 1</h5>
                               <h6 class="card-subtitle mb-2 text-muted"> Asigned to Pooja</h6>
                               <p class="card-text"> SAMPLE TASK DESCRIPTION  </p>
                               <a href="#" class="btn btn-primary delete-button"> Delete</a>
-                    
+                              <a href="#" class="btn btn-primary done-button"> Done</a>
                             </div>
                             <div class="card-footer text-muted">
                               due on 20/06/21
@@ -177,18 +177,49 @@ crossorigin="anonymous"></script>
                   </ul>
 
               </div>
-              <div class="col whatnow-normal">
+              <div class="col ">
                 <h3>The usual stuff</h3>
+                <ul class="list-group sampleCard" id="whatnow-normal">
+                    <li class="list-group-item">
+                        <div class="card text-center">
+                            <div class="card-header">
+                              In Progress
+                            </div>
+                            <div class="card-body">
+                              <h5 class="card-title">SAMPLE CARD 2</h5>
+                              <h6 class="card-subtitle mb-2 text-muted"> Asigned to Pooja</h6>
+                              <p class="card-text"> SAMPLE TASK DESCRIPTION  </p>
+                              <a href="#" class="btn btn-primary delete-button"> Delete</a>
+                              <a href="#" class="btn btn-primary done-button"> Done</a>
+                            </div>
+                            <div class="card-footer text-muted">
+                              due on 20/06/21
+                            </div>
 
-                <ul class="list-group">
-                       
+                          </div>    
+                    </li>      
                   </ul>
               </div>
               <div class="col whatnow-easy">
                 <h3>The Easy stuff</h3>
-
-                <ul class="list-group">
-                   
+                <ul class="list-group sampleCard" id="whatnow-easy">
+                  <li class="list-group-item">
+                    <div class="card text-center">
+                        <div class="card-header">
+                          In Progress
+                        </div>
+                        <div class="card-body">
+                          <h5 class="card-title">SAMPLE CARD 3</h5>
+                          <h6 class="card-subtitle mb-2 text-muted"> Asigned to Pooja</h6>
+                          <p class="card-text"> SAMPLE TASK DESCRIPTION  </p>
+                          <a href="#" class="btn btn-primary delete-button"> Delete</a>
+                          <a href="#" class="btn btn-primary done-button"> Done</a>
+                         </div>
+                        <div class="card-footer text-muted">
+                          due on 20/06/21
+                        </div>
+                      </div>    
+                </li>      
                   </ul>
               </div>
             </div>
@@ -211,7 +242,7 @@ crossorigin="anonymous"></script>
                 <div class="row my-3 border">
                   <h4>Upcoming</h4>
                   <ul>
-                      <li class="list-group-item">
+                      <li class="list-group-item review-class">
                         <div class="card text-center">
                             <div class="card-header">
                               REVIEW

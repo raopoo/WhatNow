@@ -31,8 +31,9 @@ const clearform = () => {
           let newTaskDate = document.querySelector("#newTaskDate").value;
           let newTaskAssignTo = document.querySelector("#newTaskAssignTo").value;
           let newTaskStatus = document.querySelector("#newTaskStatus").value;
+          let newTaskDiff = allTasks.checkButton();
 
-          allTasks.addTask(newTaskTitle, newTaskDescription, newTaskAssignTo, newTaskDate, newTaskStatus);
+          allTasks.addTask(newTaskTitle, newTaskDescription, newTaskAssignTo, newTaskDate, newTaskStatus, newTaskDiff);
           allTasks.render();
           allTasks.save();
                  event.preventDefault();
@@ -51,7 +52,7 @@ let taskHtml = createTaskHtml('poject work', 'Work on task1', 'Pooja', '12/08/21
 console.log(taskHtml);
 
 //Using query to assign pageList to the html bootstrap card list
-const pageList = document.querySelector("#sampleCard");
+const pageList = document.querySelector(".sampleCard");
 //Checking if the done botton was clicked
 pageList.addEventListener('click', function (event) {
    let doneCheck = event.target.classList.contains('done-button');
