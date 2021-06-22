@@ -73,37 +73,45 @@ class TaskManager{
             AssignedTo : taskAssignedTo,
             DueDate : taskDueDate,
             Status : convertedStatus,
-            Difficulty : taskDiff
+            Difficulty : taskDiff,
   
         }
         this.taskList.push(sampleTask);
     }
+
     checkButton(){
      let radio = document.getElementsByName('gridRadios');
-              
-            for(i = 0; i < radio.length; i++) {
-                if(radio[i].checked){
-               return radio[i].value; 
-                }
+              let radioValue ="test" ;
+              console.log(radio);
+            
+              for( let i = 0; i < radio.length; i++) {
+         
+               if(radio[i].checked === true){
+                radioValue = radio[i].value;
+              }
             }
-    }
+            return(radioValue);
+       }
+
     render(){
-       let tasksHtmlLists = [];
+      //  let tasksHtmlLists = [];
        let taskHtmlHard =[];
        let taskHtmlEasy = [];
        let taskHtmlNormal = [];
     
        for(let i=0; i< this.taskList.length; i++)
               {
+                
               let currentTask = this.taskList[i];
               let currentdate = new Date(currentTask.DueDate);
               let formattedDate =currentdate.getDate() + "/" + (currentdate.getMonth() + 1) + "/" + currentdate.getFullYear();
               // Depending on difficulty, push html code to a new variable
-              if(currentTask.taskDiff === "Hard"){
+            
+              if(currentTask.Difficulty === "hard"){
                 taskHtmlHard.push(createTaskHtml(currentTask.Id, currentTask.Title, currentTask.Description, currentTask.AssignedTo, formattedDate, currentTask.Status, currentTask.Difficulty));
-              }else if(currentTask.taskDiff === "Normal"){
+              }else if(currentTask.Difficulty === "normal"){
                 taskHtmlNormal.push(createTaskHtml(currentTask.Id, currentTask.Title, currentTask.Description, currentTask.AssignedTo, formattedDate, currentTask.Status, currentTask.Difficulty));
-              }else if(currentTask.taskDiff === "Easy"){
+              }else if(currentTask.Difficulty === "easy"){
                 taskHtmlEasy.push(createTaskHtml(currentTask.Id, currentTask.Title, currentTask.Description, currentTask.AssignedTo, formattedDate, currentTask.Status, currentTask.Difficulty));
               }
               
@@ -134,7 +142,7 @@ class TaskManager{
       let taskJson = JSON.stringify(this.taskList);
       localStorage.setItem("Task",taskJson);
       localStorage.setItem("currentId",currentId);
-      //alert(taskJson);
+
     }
     // Load method for local storage
     load(){

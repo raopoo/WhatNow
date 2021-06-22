@@ -31,8 +31,8 @@ const clearform = () => {
           let newTaskDate = document.querySelector("#newTaskDate").value;
           let newTaskAssignTo = document.querySelector("#newTaskAssignTo").value;
           let newTaskStatus = document.querySelector("#newTaskStatus").value;
-          let newTaskDiff = allTasks.checkButton();
-
+      
+        let newTaskDiff = allTasks.checkButton();
           allTasks.addTask(newTaskTitle, newTaskDescription, newTaskAssignTo, newTaskDate, newTaskStatus, newTaskDiff);
           allTasks.render();
           allTasks.save();
@@ -58,7 +58,6 @@ pageList.addEventListener('click', function (event) {
    let doneCheck = event.target.classList.contains('done-button');
    let deleteCheck = event.target.classList.contains('delete-button');
    if(doneCheck){
-    //  alert("I am the done button");
     const parentTask = event.target.parentElement.parentElement.parentElement;
     let taskId = Number(parentTask.dataset.current);
     let task = allTasks.getTaskById(taskId);
