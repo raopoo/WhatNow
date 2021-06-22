@@ -15,7 +15,7 @@ const createTaskHtml = (currentId,taskTitle,taskDescription,taskAssignedTo,taskD
               <h5 class="card-title">${taskTitle}</h5>
               <h6 class="card-subtitle mb-2 text-muted"> Assigned to ${taskAssignedTo}</h6>
               <p class="card-text">${taskDescription}  </p>
-              <a href="#" class="btn btn-primary"> Modify</a>
+              <a href="#" class="btn btn-primary delete-button"> Delete</a>
             </div>
             <div class="card-footer text-muted">
             ${taskDueDate}
@@ -35,7 +35,7 @@ const createTaskHtml = (currentId,taskTitle,taskDescription,taskAssignedTo,taskD
               <h5 class="card-title">${taskTitle}</h5>
               <h6 class="card-subtitle mb-2 text-muted"> Assigned to ${taskAssignedTo}</h6>
               <p class="card-text">${taskDescription}  </p>
-              <a href="#" class="btn btn-primary"> Modify</a>
+              <a href="#" class="btn btn-primary delete-button"> Delete</a>
               <a href="#" class="btn btn-primary done-button"> Done</a>
             </div>
             <div class="card-footer text-muted">
@@ -122,6 +122,17 @@ class TaskManager{
       let currentId = localStorage.getItem("currentId");
       this.taskId = Number(currentId);
      }
+    }
+    //Deleting a task
+    deleteTask(taskId){
+      let newTask = [];
+      for(let i=0;i<this.taskList.length;i++){
+          let task = this.taskList[i];
+          if(task.Id !== taskId){
+            newTask.push(task);
+          }
+      }
+      this.taskList = newTask;
     }
 
   }

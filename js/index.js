@@ -55,7 +55,7 @@ const pageList = document.querySelector("#sampleCard");
 //Checking if the done botton was clicked
 pageList.addEventListener('click', function (event) {
    let doneCheck = event.target.classList.contains('done-button');
-
+   let deleteCheck = event.target.classList.contains('delete-button');
    if(doneCheck){
     //  alert("I am the done button");
     const parentTask = event.target.parentElement.parentElement.parentElement;
@@ -63,8 +63,13 @@ pageList.addEventListener('click', function (event) {
     let task = allTasks.getTaskById(taskId);
     task.Status = "Done";
     allTasks.render();
-   /// remove the done button
-
+  
+   }else if(deleteCheck){
+    const parentTask = event.target.parentElement.parentElement.parentElement;
+    let taskId = Number(parentTask.dataset.current);
+    allTasks.deleteTask(taskId);
+    allTasks.save();
+    allTasks.render();
    }
 });
 
