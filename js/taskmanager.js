@@ -1,29 +1,29 @@
 const taskHard = document.querySelector("#whatnow-hard");
 const taskNormal = document.querySelector("#whatnow-normal");
 const taskEasy = document.querySelector("#whatnow-easy");
+const completedTask = document.querySelector("#completed-task");
 
+const createTaskHtmlCompleted = (currentId,taskTitle,taskDescription,taskAssignedTo,taskDueDate,taskStatus,taskDiff) => {
+let completedstuff=`<li class="list-group-item" data-current="${currentId}" >
+
+<div class="card text-center">
+      <div class="card-body">
+      <h5 class="card-title">${taskTitle}</h5>
+          <p class="card-text">${taskDescription}  </p>
+      <a href="#" class="btn btn-primary delete-button"> Delete</a>
+    </div>
+    <div class="card-footer text-muted">
+    ${taskDueDate}
+    </div>
+  </div>    
+</li>`
+return completedstuff;
+}
 
 const createTaskHtml = (currentId,taskTitle,taskDescription,taskAssignedTo,taskDueDate,taskStatus,taskDiff) => {
   let displaytask = '';
   if (taskStatus==="Done") {
-    displaytask = `<li class="list-group-item" data-current="${currentId}" >
-
-        <div class="card text-center">
-            <div class="card-header">
-            ${taskStatus}
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">${taskTitle}</h5>
-              <h6 class="card-subtitle mb-2 text-muted"> Assigned to ${taskAssignedTo}</h6>
-              <p class="card-text">${taskDescription}  </p>
-              <a href="#" class="btn btn-primary delete-button"> Delete</a>
-            </div>
-            <div class="card-footer text-muted">
-            ${taskDueDate}
-            </div>
-          </div>    
-    </li>`
-    return displaytask;
+    
 
   } else {
         displaytask = `<li class="list-group-item" data-current="${currentId}" >
@@ -81,9 +81,7 @@ class TaskManager{
 
     checkButton(){
      let radio = document.getElementsByName('gridRadios');
-              let radioValue ="test" ;
-              console.log(radio);
-            
+     let radioValue ="" ;
               for( let i = 0; i < radio.length; i++) {
          
                if(radio[i].checked === true){
@@ -98,15 +96,18 @@ class TaskManager{
        let taskHtmlHard =[];
        let taskHtmlEasy = [];
        let taskHtmlNormal = [];
-    
+       let taskHtmlCompleted = [];
+     
        for(let i=0; i< this.taskList.length; i++)
               {
-                
+            
               let currentTask = this.taskList[i];
               let currentdate = new Date(currentTask.DueDate);
               let formattedDate =currentdate.getDate() + "/" + (currentdate.getMonth() + 1) + "/" + currentdate.getFullYear();
               // Depending on difficulty, push html code to a new variable
-            
+              if(currentTask.Status === "Done"){
+                taskHtmlCompleted.push(createTaskHtmlCompleted(currentTask.Id, currentTask.Title, currentTask.Description, currentTask.AssignedTo, formattedDate, currentTask.Status, currentTask.Difficulty));
+              };
               if(currentTask.Difficulty === "hard"){
                 taskHtmlHard.push(createTaskHtml(currentTask.Id, currentTask.Title, currentTask.Description, currentTask.AssignedTo, formattedDate, currentTask.Status, currentTask.Difficulty));
               }else if(currentTask.Difficulty === "normal"){
@@ -115,14 +116,17 @@ class TaskManager{
                 taskHtmlEasy.push(createTaskHtml(currentTask.Id, currentTask.Title, currentTask.Description, currentTask.AssignedTo, formattedDate, currentTask.Status, currentTask.Difficulty));
               }
               
-              //tasksHtmlLists.push(taskHtml);
+           
+     
             }
         let finalHard =  taskHtmlHard.join("\n");
         let finalNormal =  taskHtmlNormal.join("\n");
         let finalEasy =  taskHtmlEasy.join("\n");
+        let finalDone =  taskHtmlCompleted.join("\n");
        taskHard.innerHTML = finalHard;
        taskEasy.innerHTML = finalEasy;
        taskNormal.innerHTML = finalNormal;
+       completedTask.innerHTML = finalDone;
      }
 
     //creating the getTaskbyID method
