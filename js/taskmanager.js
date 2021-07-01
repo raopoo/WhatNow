@@ -9,12 +9,10 @@ let completedstuff=`<li class="list-group-item" data-current="${currentId}" >
 <div class="card text-center">
       <div class="card-body">
       <h5 class="card-title">${taskTitle}</h5>
-          <p class="card-text">${taskDescription}  </p>
+          <p class="card-text"> Completed by ${taskAssignedTo}  </p>
       <a href="#" class="btn btn-primary delete-button"> Delete</a>
     </div>
-    <div class="card-footer text-muted">
-    ${taskDueDate}
-    </div>
+  
   </div>    
 </li>`
 return completedstuff;

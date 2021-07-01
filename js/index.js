@@ -67,6 +67,7 @@ pageList.addEventListener('click', function (event) {
     let task = allTasks.getTaskById(taskId);
     task.Status = "Done";
     allTasks.render();
+    allTasks.save();
   
    }else if(deleteCheck){
     const parentTask = event.target.parentElement.parentElement.parentElement;
